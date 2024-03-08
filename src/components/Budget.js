@@ -1,10 +1,11 @@
 import React from "react";
-import BudgetCalculator from "../components/BudgetCalculator";
+import BudgetCalculator from "./BudgetCalculator";
 
 export default function Budget() {
     return (
         <>
-        <h1>BUDGET</h1>
+        <h2>BUDGET</h2>
+        <BudgetCalculator />
         </>
     )
 }
