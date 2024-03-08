@@ -1,4 +1,5 @@
 import React from "react";
+import BudgetCalculator from "../components/BudgetCalculator";
 
 export default function Budget() {
     return (
@@ -7,3 +8,5 @@ export default function Budget() {
         </>
     )
 }
+
+// Maybe list common expenses like airfare, lodging, transportation to start with. This could work like the to-do list project.

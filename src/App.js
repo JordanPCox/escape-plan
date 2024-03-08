@@ -5,6 +5,8 @@ import Budget from './pages/Budget'
 import Inspire from './pages/Inspire'
 import Itinerary from './pages/Itinerary'
 import Plan from './pages/Plan'
+import MyTrips from './pages/MyTrips';
+import NoPage from './pages/NoPage'
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/plan/budget" element={<Budget />} />
         <Route path="/plan/itinerary" element={<Itinerary />} />
         <Route path="/inspire" element={<Inspire />} />
+        <Route path="/mytrips" element={<MyTrips />} />
+        <Route path="*" element={<NoPage />} />
       </Routes>
       </BrowserRouter>
     </div>
