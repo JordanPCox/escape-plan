@@ -1,70 +1,86 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-function ItineraryForm({ addEvent }) {
-    const [event, setEvent] = useState({
-        title: '',
-        description: '',
-        date: '',
-        time: '',
-    })
+function ItineraryForm({ addEvent, editingEvent }) {
+  const [event, setEvent] = useState({
+    title: '',
+    description: '',
+    date: '',
+    time: '',
+  });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target
-        setEvent(prevEvent => ({
-            ...prevEvent,
-            [name]: value,
-        }))
+  useEffect(() => {
+    if (editingEvent) {
+        setEvent(editingEvent)
     }
+  }, [editingEvent])
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        addEvent(event)
-        setEvent({ title: '', description: '', date: '', time: '' }) // reset the form
-    }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEvent(prevEvent => ({
+      ...prevEvent,
+      [name]: value,
+    }));
+  };
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <input
-            type="text"
-            name="title"
-            value={event.title}
-            onChange={handleChange}
-            placeholder="Event Title"
-            required
-            />
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addEvent(event);
+    setEvent({ title: '', description: '', date: '', time: '' }); // Reset form after submission
+  };
 
-            <textarea
-            name="description"
-            value={event.description}
-            onChange={handleChange}
-            placeholder="Event Description"
-            required
-            />
-
-            <input
-            type="date"
-            name="date"
-            value={event.date}
-            onChange={handleChange}
-            required
-            />
-
-            <input
-            type="time"
-            name="time"
-            value={event.time}
-            onChange={handleChange}
-            required
-            />
-
-            <button type="submit">Add Event</button>
-        </form>
-    )
+  return (
+    <form onSubmit={handleSubmit} className="mt-4">
+      <div className="mb-3">
+        <label htmlFor="title" className="form-label">Event Title</label>
+        <input
+          type="text"
+          className="form-control"
+          id="title"
+          name="title"
+          value={event.title}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="description" className="form-label">Description</label>
+        <textarea
+          className="form-control"
+          id="description"
+          name="description"
+          rows="3"
+          value={event.description}
+          onChange={handleChange}
+          required
+        ></textarea>
+      </div>
+      <div className="mb-3">
+        <label htmlFor="date" className="form-label">Date</label>
+        <input
+          type="date"
+          className="form-control"
+          id="date"
+          name="date"
+          value={event.date}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="time" className="form-label">Time</label>
+        <input
+          type="time"
+          className="form-control"
+          id="time"
+          name="time"
+          value={event.time}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <button type="submit" className="btn btn-primary">Add Event</button>
+    </form>
+  );
 }
 
-
-
-
-
-
-export default ItineraryForm
+export default ItineraryForm;

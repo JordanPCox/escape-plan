@@ -9,7 +9,7 @@ import NewTrip from './pages/NewTrip';
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <BrowserRouter>
       <Routes>
         <Route index element={<Home />} />
