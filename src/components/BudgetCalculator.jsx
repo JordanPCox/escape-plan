@@ -21,7 +21,7 @@ function BudgetCalculator() {
     <div>
       <h2>Budget Calculator</h2>
       <div>
-        <label htmlFor="income">Income:</label>
+        <label htmlFor="income">Budget:</label>
         <input
           type="number"
           id="income"
